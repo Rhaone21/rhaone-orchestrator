@@ -1,0 +1,116 @@
+# Full-featured configuration example
+# Complete options for power users
+
+github:
+  owner: your-org
+  repo: your-repo
+  token: ${GITHUB_TOKEN}
+  # Rate limiting settings
+  rateLimit:
+    maxRequests: 100
+    perWindowMs: 60000
+  # Workflow settings
+  workflow:
+    checkInterval: 30000
+    maxRetries: 3
+
+git:
+  # Repository settings
+  mainBranch: main
+  worktreesDir: ${HOME}/.rhaone-worktrees
+  defaultBranchPrefix: rhaone/issue-
+  # Auto-cleanup settings
+  cleanup:
+    autoRemove: true
+    keepDays: 7
+    maxWorktrees: 10
+
+# Session management
+session:
+  # Default session settings
+  defaultTimeout: 300
+  defaultModel: claude-sonnet-4-20250514
+  maxConcurrent: 5
+  # Auto-pause settings
+  autoPause:
+    enabled: true
+    idleMinutes: 10
+    cpuThreshold: 10
+  # Session persistence
+  persistence:
+    enabled: true
+    saveInterval: 60
+    stateDir: ${HOME}/.rhaone-state
+
+# Lifecycle management
+lifecycle:
+  # Auto-reply to issues
+  autoReply:
+    enabled: true
+    onProgress: true
+    onComplete: true
+    onFail: true
+  # Auto-reactions
+  reactions:
+    progress: ["🤔", "🔧"]
+    complete: ["✅", "🎉"]
+    fail: ["❌"]
+  # CI monitoring
+  ci:
+    enabled: true
+    pollInterval: 30000
+    autoMerge:
+      enabled: true
+      requireApprovals: 1
+      requiredChecks: ["test", "lint"]
+
+# Telegram notifications
+telegram:
+  token: ${TELEGRAM_BOT_TOKEN}
+  chatId: ${TELEGRAM_CHAT_ID}
+  # Notification settings
+  notify:
+    onSessionStart: true
+    onSessionEnd: true
+    onCIStatus: true
+    onMention: true
+  # Message formatting
+  format:
+    useMarkdown: true
+    maxLength: 4000
+
+# Learning engine
+learning:
+  enabled: true
+  insights:
+    trackPatterns: true
+    trackSuccess: true
+    trackFailures: true
+  storage:
+    dir: ${HOME}/.rhaone-learning
+
+# Resource management
+resources:
+  # Memory limits
+  memory:
+    maxSessions: 10
+    maxWorktrees: 20
+  # CPU limits
+  cpu:
+    maxConcurrent: 5
+
+# Error handling
+errorHandling:
+  retry:
+    maxAttempts: 3
+    backoffMs: 1000
+  escalation:
+    onFailure: true
+    notifyChannel: ${TELEGRAM_CHAT_ID}
+
+# Logging
+logging:
+  level: info
+  file: ${HOME}/.rhaone/logs/orchestrator.log
+  maxSize: 10MB
+  maxFiles: 5

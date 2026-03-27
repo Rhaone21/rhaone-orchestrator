@@ -1,0 +1,36 @@
+# Multi-repository configuration
+# Handle issues across multiple repos
+
+github:
+  # Default repo (used if no repo specified)
+  owner: your-org
+  repo: main-repo
+  token: ${GITHUB_TOKEN}
+
+# Repository-specific overrides
+repositories:
+  - owner: your-org
+    repo: frontend-app
+    # Frontend specific settings
+    path: apps/frontend
+  
+  - owner: your-org  
+    repo: backend-api
+    # Backend specific settings
+    path: services/api
+
+git:
+  mainBranch: main
+  worktreesDir: ${HOME}/rhaone-worktrees
+
+# Per-repo session settings
+session:
+  defaultTimeout: 300
+
+lifecycle:
+  ci:
+    enabled: true
+
+telegram:
+  token: ${TELEGRAM_BOT_TOKEN}
+  chatId: ${TELEGRAM_CHAT_ID}

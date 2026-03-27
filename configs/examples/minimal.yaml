@@ -1,0 +1,17 @@
+# Minimal configuration example
+# Just the essentials to get started
+
+github:
+  owner: your-org
+  repo: your-repo
+  token: ${GITHUB_TOKEN}
+
+git:
+  mainBranch: main
+
+session:
+  defaultTimeout: 300
+
+telegram:
+  token: ${TELEGRAM_BOT_TOKEN}
+  chatId: ${TELEGRAM_CHAT_ID}

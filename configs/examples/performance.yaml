@@ -1,0 +1,49 @@
+# Performance-Optimized Configuration
+# Best for: High-volume CI/CD environments
+
+github:
+  owner: ${GITHUB_OWNER}
+  repo: ${GITHUB_REPO}
+  token: ${GITHUB_TOKEN}
+
+git:
+  mainBranch: main
+  worktreesDir: /tmp/rhaone-worktrees
+
+session:
+  defaultTimeout: 60
+  defaultModel: claude-sonnet-4-20250514
+  maxConcurrent: 20
+
+reactions:
+  ciFailed:
+    enabled: true
+    action: auto_fix
+    autoRetry: true
+    maxRetries: 5
+  ciPassed:
+    enabled: true
+    action: auto_merge
+  reviewApproved:
+    enabled: true
+    action: auto_merge
+
+performance:
+  cacheEnabled: true
+  cacheTTL: 15000
+  adaptivePolling: true
+  minPollInterval: 5000
+  maxPollInterval: 30000
+  maxCacheSize: 2000
+  maxMemoryMB: 200
+
+errorHandling:
+  maxRetries: 5
+  backoffMs: 2000
+  backoffMultiplier: 2
+  maxBackoffMs: 60000
+
+learning:
+  enabled: true
+  minSessionsForPattern: 10
+  minSessionsForRecommendation: 5

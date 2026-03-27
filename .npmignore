@@ -1,0 +1,46 @@
+# Source files
+src/
+tsconfig.json
+*.tsbuildinfo
+
+# Tests
+tests/
+*.test.ts
+*.spec.ts
+*.e2e.test.ts
+vitest.config.ts
+jest.config.js
+
+# Development
+.github/
+.vscode/
+.idea/
+*.log
+logs/
+memory/
+
+# Build scripts (keep dist/)
+scripts/
+
+# Documentation source (keep README.md, CHANGELOG.md)
+docs/
+
+# Configs that shouldn't be published
+config/
+
+# Misc
+.DS_Store
+*.swp
+*.swo
+*~
+.env
+.env.local
+.env.*.local
+
+# Coverage
+coverage/
+.nyc_output/
+
+# CI
+.travis.yml
+.circleci/

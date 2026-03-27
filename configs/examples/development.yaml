@@ -1,0 +1,46 @@
+# Development Configuration
+# Best for: Local development and testing
+
+github:
+  owner: ${GITHUB_OWNER:-test-org}
+  repo: ${GITHUB_REPO:-test-repo}
+  token: ${GITHUB_TOKEN}
+
+git:
+  mainBranch: main
+  worktreesDir: ~/.rhaone-orchestrator/dev-worktrees
+
+session:
+  defaultTimeout: 30
+  defaultModel: claude-sonnet-4-20250514
+  maxConcurrent: 3
+
+reactions:
+  ciFailed:
+    enabled: true
+    action: notify
+    autoRetry: false
+  ciPassed:
+    enabled: true
+    action: notify
+
+performance:
+  cacheEnabled: true
+  cacheTTL: 5000
+  adaptivePolling: true
+  minPollInterval: 5000
+  maxPollInterval: 15000
+
+errorHandling:
+  maxRetries: 1
+  backoffMs: 1000
+
+learning:
+  enabled: false
+
+# Debug settings
+debug:
+  enabled: true
+  logLevel: verbose
+  logToFile: true
+  logPath: ~/.rhaone-orchestrator/logs

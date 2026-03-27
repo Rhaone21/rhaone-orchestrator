@@ -1,0 +1,93 @@
+# Enterprise Configuration
+# Best for: Large organizations with multiple teams
+
+github:
+  owner: ${GITHUB_OWNER}
+  repo: ${GITHUB_REPO}
+  token: ${GITHUB_TOKEN}
+
+git:
+  mainBranch: main
+  worktreesDir: /data/rhaone/worktrees
+
+session:
+  defaultTimeout: 480
+  defaultModel: claude-opus-4-20250514
+  maxConcurrent: 50
+
+# Multi-project setup
+projects:
+  - name: frontend
+    repo: ${GITHUB_OWNER}/frontend
+    path: /data/projects/frontend
+    defaultBranch: develop
+    agents:
+      frontend-agent:
+        permissions: full
+        model: claude-sonnet-4-20250514
+  
+  - name: backend
+    repo: ${GITHUB_OWNER}/backend
+    path: /data/projects/backend
+    defaultBranch: main
+    agents:
+      backend-agent:
+        permissions: full
+        model: claude-opus-4-20250514
+  
+  - name: infrastructure
+    repo: ${GITHUB_OWNER}/infrastructure
+    path: /data/projects/infrastructure
+    defaultBranch: main
+    agents:
+      infra-agent:
+        permissions: full
+        model: claude-sonnet-4-20250514
+
+telegram:
+  token: ${TELEGRAM_BOT_TOKEN}
+  chatId: ${TELEGRAM_CHAT_ID}
+
+reactions:
+  ciFailed:
+    enabled: true
+    action: notify
+    autoRetry: true
+    maxRetries: 3
+  ciPassed:
+    enabled: true
+    action: notify
+  reviewApproved:
+    enabled: true
+    action: notify
+  reviewChangesRequested:
+    enabled: true
+    action: notify
+
+performance:
+  cacheEnabled: true
+  cacheTTL: 60000
+  adaptivePolling: true
+  minPollInterval: 10000
+  maxPollInterval: 120000
+  maxCacheSize: 5000
+  maxMemoryMB: 500
+
+errorHandling:
+  maxRetries: 3
+  backoffMs: 5000
+  backoffMultiplier: 2
+  maxBackoffMs: 120000
+  maxErrorHistory: 1000
+
+learning:
+  enabled: true
+  minSessionsForPattern: 20
+  minSessionsForRecommendation: 10
+  storagePath: /data/rhaone/learning
+
+# Audit logging
+audit:
+  enabled: true
+  logPath: /var/log/rhaone
+  retentionDays: 90

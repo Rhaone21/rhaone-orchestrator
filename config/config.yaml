@@ -1,0 +1,19 @@
+# Rhaone Orchestrator Configuration
+
+# Global defaults (can be overridden in project config)
+defaults:
+  agent: kimi
+  model: MiniMax-Coding
+
+# GitHub configuration
+github:
+  # Token loaded from GITHUB_TOKEN env var
+  
+# Telegram notifications
+telegram:
+  # Loaded from RHAONE_TELEGRAM_CHAT_ID env var
+  
+# Learning system
+learning:
+  enabled: true
+  minSessionsForPattern: 5

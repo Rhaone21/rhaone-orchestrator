@@ -1,0 +1,22 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(npm run:*)",
+      "Bash(npm test:*)",
+      "mcp__Claude_Preview__preview_start",
+      "Bash(node -e \"const eh = require\\(''./dist/lib/error-handler''\\); console.log\\(''withRetry:'', typeof eh.withRetry\\); console.log\\(''RETRY_CONFIGS:'', JSON.stringify\\(eh.RETRY_CONFIGS\\)\\); console.log\\(''keys:'', Object.keys\\(eh\\).slice\\(0,10\\)\\)\" 2)",
+      "Bash(1 \"D:\\\\PPRJ\\\\AI\\\\rhaone-orchestrator\")",
+      "Bash(node -e \"const eh = require\\(''./dist/lib/error-handler''\\); console.log\\(''withRetry:'', typeof eh.withRetry\\); console.log\\(''RETRY_CONFIGS:'', JSON.stringify\\(eh.RETRY_CONFIGS\\)\\); console.log\\(''keys:'', Object.keys\\(eh\\).slice\\(0,10\\)\\)\")",
+      "Bash(node -e \"const eh = require\\(''./dist/lib/error-handler/error-handler''\\); console.log\\(''withRetry:'', typeof eh.withRetry\\); console.log\\(''keys:'', Object.keys\\(eh\\).slice\\(0,10\\)\\)\")",
+      "Bash(node --input-type=module --eval \"import eh from ''./dist/lib/error-handler/index.js''; console.log\\(Object.keys\\(eh\\)\\)\")",
+      "Bash(node -e \"const eh = require\\(''./dist/lib/error-handler''\\); console.log\\(''withRetry:'', typeof eh.withRetry\\); console.log\\(''withCircuitBreaker:'', typeof eh.withCircuitBreaker\\); console.log\\(''RETRY_CONFIGS.SESSION_SPAWN:'', JSON.stringify\\(eh.RETRY_CONFIGS?.SESSION_SPAWN\\)\\); console.log\\(''CIRCUIT_BREAKERS:'', JSON.stringify\\(eh.CIRCUIT_BREAKERS\\)\\);\")",
+      "Bash(node -e \"const eh = require\\(''./dist/lib/error-handler/error-handler''\\); console.log\\(''type:'', typeof eh\\); console.log\\(''keys:'', Object.keys\\(eh\\)\\);\")",
+      "Bash(node -e \"const eh = require\\(''./dist/lib/error-handler/index''\\); console.log\\(''type:'', typeof eh\\); console.log\\(''keys:'', Object.keys\\(eh\\)\\);\")",
+      "Bash(node -e \"const eh = require\\(''./dist/lib/error-handler''\\); console.log\\(''withRetry:'', typeof eh.withRetry\\); console.log\\(''keys count:'', Object.keys\\(eh\\).length\\);\")",
+      "Bash(node -e \"const eh = require\\(''./dist/lib/error-handler''\\); console.log\\(''keys:'', Object.keys\\(eh\\)\\);\")",
+      "Bash(node dist/cli.js help)",
+      "Bash(node dist/cli.js decompose PHASE6-001 \"Implement JWT authentication system\")",
+      "Bash(node dist/cli.js lineage PHASE6-001)"
+    ]
+  }
+}

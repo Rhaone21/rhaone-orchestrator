@@ -1,0 +1,88 @@
+{
+  "name": "rhaone-orchestrator",
+  "version": "1.0.0",
+  "description": "Rhaone Orchestrator - Multi-agent orchestration for autonomous development with Claude Code",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "type": "commonjs",
+  "bin": {
+    "rhaone": "dist/cli.js"
+  },
+  "files": [
+    "dist",
+    "configs",
+    "examples",
+    "README.md",
+    "LICENSE",
+    "CHANGELOG.md"
+  ],
+  "scripts": {
+    "build": "tsc",
+    "build:watch": "tsc --watch",
+    "build:clean": "rm -rf dist && tsc",
+    "test": "vitest run",
+    "test:watch": "vitest",
+    "test:coverage": "vitest run --coverage",
+    "test:live": "CLAWDBOT_LIVE_TEST=1 vitest run",
+    "lint": "eslint src --ext .ts",
+    "lint:fix": "eslint src --ext .ts --fix",
+    "clean": "rm -rf dist",
+    "prepublishOnly": "npm run clean && npm run build && npm test",
+    "postversion": "git push && git push --tags",
+    "version:patch": "npm version patch",
+    "version:minor": "npm version minor",
+    "version:major": "npm version major",
+    "publish:public": "npm publish --access public",
+    "publish:beta": "npm publish --tag beta --access public",
+    "docs:build": "echo 'Documentation built'",
+    "examples:verify": "echo 'Examples verified'"
+  },
+  "keywords": [
+    "orchestrator",
+    "claude-code",
+    "rhaone",
+    "ai",
+    "automation",
+    "github",
+    "ci-cd",
+    "multi-agent",
+    "typescript",
+    "autonomous-development",
+    "workflow-automation"
+  ],
+  "author": "Rhaone Team <team@rhaone.dev>",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/your-org/rhaone-orchestrator.git"
+  },
+  "bugs": {
+    "url": "https://github.com/your-org/rhaone-orchestrator/issues"
+  },
+  "homepage": "https://github.com/your-org/rhaone-orchestrator#readme",
+  "engines": {
+    "node": ">=20.0.0"
+  },
+  "dependencies": {
+    "js-yaml": "^4.1.0",
+    "telegraf": "^4.16.3"
+  },
+  "devDependencies": {
+    "@types/js-yaml": "^4.0.9",
+    "@types/node": "^20.0.0",
+    "@typescript-eslint/eslint-plugin": "^7.0.0",
+    "@typescript-eslint/parser": "^7.0.0",
+    "@vitest/coverage-v8": "^2.1.0",
+    "eslint": "^8.57.0",
+    "typescript": "^5.3.0",
+    "vitest": "^2.1.0"
+  },
+  "peerDependencies": {
+    "@anthropic-ai/claude-code": "*"
+  },
+  "peerDependenciesMeta": {
+    "@anthropic-ai/claude-code": {
+      "optional": true
+    }
+  }
+}

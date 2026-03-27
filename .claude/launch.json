@@ -1,0 +1,17 @@
+{
+  "version": "0.0.1",
+  "configurations": [
+    {
+      "name": "TypeScript Watch",
+      "runtimeExecutable": "npm",
+      "runtimeArgs": ["run", "build:watch"],
+      "port": 0
+    },
+    {
+      "name": "Vitest Watch",
+      "runtimeExecutable": "npm",
+      "runtimeArgs": ["run", "test:watch"],
+      "port": 0
+    }
+  ]
+}

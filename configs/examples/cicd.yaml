@@ -1,0 +1,40 @@
+# CI/CD focused configuration
+# Optimized for automated testing and PR workflows
+
+github:
+  owner: your-org
+  repo: your-repo
+  token: ${GITHUB_TOKEN}
+
+git:
+  mainBranch: main
+  worktreesDir: ${HOME}/rhaone-worktrees
+
+session:
+  defaultTimeout: 600  # Longer timeout for tests
+  defaultModel: claude-sonnet-4-20250514
+
+lifecycle:
+  autoReply:
+    enabled: true
+    onProgress: true
+    onComplete: true
+    onFail: true
+  reactions:
+    progress: ["🚧", "🔧"]
+    complete: ["✅", "🏗️"]
+    fail: ["❌", "💥"]
+  ci:
+    enabled: true
+    checkInterval: 15000  # More frequent checks
+    autoMerge:
+      enabled: true
+      requireApprovals: 2
+      requiredChecks: ["test", "build", "lint"]
+
+telegram:
+  token: ${TELEGRAM_BOT_TOKEN}
+  chatId: ${TELEGRAM_CHAT_ID}
+
+logging:
+  level: debug
